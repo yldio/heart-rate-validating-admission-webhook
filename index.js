@@ -22,7 +22,6 @@ noble.on('discover', function(peripheral) {
 
 function connect(peripheral) {
   peripheral.connect(error => {
-    console.log(error);
     peripheral.discoverSomeServicesAndCharacteristics([HEART_RATE_SERVICE_UUID], [HEART_RATE_CHARACTERISTICS_UUID], (error, services, characteristics) => {
         var hr = characteristics[0];
 

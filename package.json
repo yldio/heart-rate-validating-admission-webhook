@@ -9,6 +9,7 @@
   "author": "Tom Gallacher <tom@yld.io>",
   "license": "MPL-2.0",
   "dependencies": {
-    "noble": "^1.9.1"
+    "noble": "^1.9.1",
+    "restify": "^7.2.1"
   }
 }
