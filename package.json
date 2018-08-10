@@ -1,0 +1,14 @@
+{
+  "name": "streseed",
+  "version": "1.0.0",
+  "description": "Don't be stressed, be happy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Gallacher <tom@yld.io>",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "noble": "^1.9.1"
+  }
+}
