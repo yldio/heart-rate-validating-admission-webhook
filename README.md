@@ -12,6 +12,18 @@ Captures your heart-rate in Node.js using Bluetooth Low Energy (LE) and then per
 
 Why not!
 
+## Deployment
+
+```
+mkcert -install kubernetes.yld.io localhost 127.0.0.1 ::1
+mv kubernetes.yld.io+3-key.pem kubernetes.yld.io+3.pem cert/.
+
+# Change clientConfig.caBundle to below:
+cat $(mkcert -CAROOT)/rootCA.pem | openssl enc -base64 -A
+
+kubectl apply -f deployment
+```
+
 ## License
 
 MPL-2.0

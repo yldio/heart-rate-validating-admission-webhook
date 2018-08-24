@@ -1,4 +1,7 @@
-var noble = require('noble');
+const noble = require('noble');
+const EventEmitter = require('events');
+
+const heart  = new EventEmitter();
 
 const HEART_RATE_SERVICE_UUID = '180d';
 const HEART_RATE_CHARACTERISTICS_UUID = '2a37';
@@ -27,7 +30,8 @@ function connect(peripheral) {
 
         hr.on('data', function(data, isNotification) {
           // 🤘
-          console.log(parseHeartRateData(data));
+          heart.emit('data', parseHeartRateData(data));
+          // console.log(parseHeartRateData(data));
         });
 
         hr.subscribe(function(error) {
@@ -76,3 +80,5 @@ function parseHeartRateData(data) {
   const rr = rrSample && (rrSample * sampleCorrection) | 0
   return {bpm, sensor, energyExpended, rr}
 }
+
+module.exports = heart;
