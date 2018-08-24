@@ -31,16 +31,16 @@ server.post('/', function (req, res, next) {
     allowed: false
   };
 
-  let bpmThreshold = 80;
-  let bpmTooHigh = heartData.bpm > bpmThreshold
+  let bpmThreshold = process.argv[2] || 90;
+  let bpmTooLow = heartData.bpm < bpmThreshold
 
-  if (!bpmTooHigh) {
+  if (!bpmTooLow) {
     admissionResponse.allowed = true;
   } else {
     admissionResponse.status = {
       status: 'Failure',
-      message: `heart rate: ${heartData.bpm} is too high (Higher than ${bpmThreshold})`,
-      reason: `heart rate: ${heartData.bpm} is too high (Higher than ${bpmThreshold})`,
+      message: `heart rate: ${heartData.bpm} is too low (Lower than ${bpmThreshold})`,
+      reason: `heart rate: ${heartData.bpm} is too low (Lower than ${bpmThreshold})`,
       code: 402
     };
   }

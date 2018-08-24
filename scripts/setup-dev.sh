@@ -18,5 +18,5 @@ echo "Installing mkcert into GOPATH=$GOPATH"
 go get -u github.com/FiloSottile/mkcert
 
 echo "Installing development certificates into system root (sudo) and $DIR"
-mkcert -install kubernetes.yld.io localhost 127.0.0.1 ::1
+mkcert -install kubernetes.yld.io 192.168.99.1 127.0.0.1 ::1
 mv kubernetes.yld.io+3-key.pem kubernetes.yld.io+3.pem "$DIR/../cert/."

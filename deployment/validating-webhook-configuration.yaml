@@ -8,13 +8,12 @@ webhooks:
       - apiGroups:
           - ""
         apiVersions:
-          - v1
+          - "v1"
         operations:
           - "CREATE"
-          - "UPDATE"
         resources:
-          - "*"
-    failurePolicy: Fail
+          - "pods"
+    failurePolicy: Ignore
     clientConfig:
       url: "https://192.168.99.1:8080"
       caBundle: "%%CERTIFICATE%%"
