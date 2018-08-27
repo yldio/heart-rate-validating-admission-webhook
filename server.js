@@ -34,7 +34,7 @@ server.post('/', function (req, res, next) {
   let bpmThreshold = process.argv[2] || 90;
   let bpmTooLow = heartData.bpm < bpmThreshold
 
-  if (!bpmTooLow) {
+  if (Number.isInteger(heartData.bpm) && !bpmTooLow) {
     admissionResponse.allowed = true;
   } else {
     admissionResponse.status = {
